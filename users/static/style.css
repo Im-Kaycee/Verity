@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    background-image: url(images/bg.jpg);
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: poppins;
+    margin-left: 50px;
+    margin-right: 50px;
+    height: 100vh;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.hero{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.logo{
+    height: 150px;
+    width: 150px;
+}
+.hero h1{
+    color: #FFF;
+text-align: center;
+font-family: Poppins;
+font-size: 60px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.hero h1 span{
+    color: #000734;
+font-family: Poppins;
+font-size: 60px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.hero h3{
+    color: #FFF;
+text-align: center;
+font-family: Poppins;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.centralised-button {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    padding-bottom: 50px;
+}
+
+button{
+    display: inline-flex;
+padding: 14.452px 55.71px 16.548px 56px;
+justify-content: center;
+align-items: center;
+border-radius: 90.323px;
+background: rgba(255, 255, 255, 0.50);
+backdrop-filter: blur(3.612903118133545px);
+color: #0D111C;
+font-family: Poppins;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+button:hover{
+    background: #b692c4;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+nav {
+    position: relative;
+    margin: 50px auto 0;
+    width: 590px;
+    height: 50px;
+    background: #34495e;
+    border-radius: 8px;
+    font-size: 0;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1);
+}
+
+nav a {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    line-height: 50px;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    text-align: center;
+}
+
+nav .animation-start-home {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    z-index: 0;
+    background: #1abc9c;
+    border-radius: 8px;
+    transition: width 0.5s ease-out, left 0.5s ease-out, opacity 0.3s ease-out; /* Apply easing to position and opacity */
+    opacity: 0; /* Hidden by default */
+}
+
+nav a:nth-child(1) {
+    width: 100px;
+}
+
+nav .start-home,
+a:nth-child(1):hover ~ .animation-start-home {
+    width: 100px;
+    left: 0;
+    opacity: 1; /* Show the pill on hover */
+}
+
+nav a:nth-child(2) {
+    width: 110px;
+}
+
+nav a:nth-child(2):hover ~ .animation-start-home {
+    width: 110px;
+    left: 100px;
+    opacity: 1; /* Show the pill on hover */
+}
+
+nav a:nth-child(3) {
+    width: 100px;
+}
+
+nav a:nth-child(3):hover ~ .animation-start-home {
+    width: 100px;
+    left: 210px;
+    opacity: 1; /* Show the pill on hover */
+}
+
+nav a:nth-child(4) {
+    width: 160px;
+}
+
+nav a:nth-child(4):hover ~ .animation-start-home{
+    width: 160px;
+    left: 310px;
+    opacity: 1; /* Show the pill on hover */
+}
+
+nav a:nth-child(5) {
+    width: 120px;
+}
+
+nav a:nth-child(5):hover ~ .animation-start-home {
+    width: 120px;
+    left: 470px;
+    opacity: 1; /* Show the pill on hover */
+}
+.candidate-list{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.voter-info{
+    display: inline-flex;
+padding: 0px 0.547px 0px 0px;
+justify-content: center;
+align-items: flex-end;
+gap: 24.172px;
+color: #000;
+font-family: Poppins;
+font-size: 30px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.voter-info img{
+    width: 50px;
+    height: 50px;
+}
+.radio-buttons{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.custom-radio input{
+    display: none;
+}
+.radio-btn{
+    position: relative;
+    width: 234px;
+    height: 260px;
+    margin: 10px;
+    background-color: #000734;
+    border: 4px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.radio-btn .content{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.radio-btn .profile-image{
+    width: 80px;
+    height: 80px;
+    margin: 20px 0;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.radio-btn .profile-image img{
+    width: 100%;
+    height: 100%;
+    user-select: none;
+}
+.radio-btn h2{
+    margin-top: 0px;
+    color: #FFF;
+    margin-bottom: 5px;
+    font-size: 30px;
+    text-transform: capitalize;
+}
+.radio-btn .check-icon{
+    width: 30px;
+    height: 30px;
+    background-color: #040f52;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+}
+.radio-btn .check-icon .icon{
+    display: inline-block;
+    position: relative;
+    width: 18px;
+    height: 8px;
+    margin-top: -2px;
+    transform: rotate(-40deg);
+}
+.radio-btn .check-icon .icon::before{
+    content:"";
+    width: 3px;
+    height: 100%;
+    background-color: #ffffff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 10px;
+    box-shadow: -2px 0 5px  rgba(0,0,0,0.231);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all 0.2s ease-in-out;
+}
+.radio-btn .check-icon .icon::after{
+    content:"";
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 10px;
+    box-shadow:  0 3px 5px  rgba(0,0,0,0.231);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all 0.2s ease-in-out;
+}
+.custom-radio input:checked + .radio-btn{
+    border: 4px solid #b692c4;
+}
+.custom-radio input:checked + .radio-btn .check-icon{
+   background-color:  #b692c4;
+}
+.custom-radio input:checked + .radio-btn .check-icon .icon::before,
+.custom-radio input:checked + .radio-btn .check-icon .icon::after{
+transform: scale(1);
+}
+ 
+.login-form{
+    position: relative;
+    min-height: 100vh;
+    z-index: 0;
+    background: rgba(224, 224, 224, 0.247);
+    padding: 10px;
+    justify-content: center;
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    align-items: center;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+}
+.login-form h1{
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #ffffff;
+
+}
+.login-form h2{
+    line-height: 40px;
+    margin-bottom: 5px;
+    font-size: 30px;
+    font-weight: 500;
+    color: #FFF;
+    text-align: center;
+}
+.login-form .main{
+    position: relative;
+    display: flex;
+    margin: 30px 0;
+}
+.content{
+    flex-basis: 50%;
+    padding: 3em 3em;
+    background: #000734;
+    box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, .1);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius:8px ;
+}
+.form-img{
+    flex-basis: 50%;
+    background: #ffffff;
+    background-size: cover;
+    padding: 40px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    align-items: center;
+    display: grid;
+}
+.form-img img{
+    max-width: 100%;
+}
+.login-form form{
+    margin: 30px 0;
+}
+.login-form input{
+    outline: none;
+    margin-bottom: 15px;
+    font-stretch: 16px;
+    color: #999;
+    text-align: left;
+    padding: 14px 20px;
+    width: 100%;
+    display: inline-block;
+    background: #f7fafc;
+    box-sizing: border-box;
+    border: none;
+    transition: 0.3s ease;
+
+}
+.login-form input:focus{
+    background: transparent;
+    border: 1px solid #b692c4;
+}
+.login-form button{
+    font-size: 18px;
+    width: 100%;
+    border: none;
+    padding: 14px 15px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+@media(max-width:736px){
+    .login-form .main{
+        flex-direction: column;
+    }
+    .login-form form{
+        margin-top: 30px;
+        margin-bottom: 10px;
+
+    }
+    .form-img{
+        border-radius: 0;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        order: 2;
+    }
+    .content{
+        order: 1;
+        border-radius: 0;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+}
+
+  /* For webkit-based browsers (Chrome, Safari, Edge) */
+  input[type="number"]::-webkit-inner-spin-button, 
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+  
+  .alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+  }
+  
+  .alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+  }
+  
+  .alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+  }
+  
+  .alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+  }
+  
+  .alert-dismissable, .alert-dismissible {
+    padding-right: 35px;
+  }
+  
+  .alert-dismissable .close, .alert-dismissible .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit;
+  }
+  
