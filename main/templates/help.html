@@ -1,0 +1,209 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Accordion</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <style>
+        /* FAQ Styles */
+        .faq-container {
+            max-width: 600px;
+            margin: 30px auto;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+            margin-bottom:100px;
+        }
+
+        .faq-item {
+            margin-bottom: 10px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            background-color: #f9f9f9;
+            border: none;
+            padding: 15px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius:5px;
+            font-weight: bold;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 15px;
+            background-color: #fff;
+            border-top: 1px solid #ccc;
+            font-size: 14px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            font-weight: bold;
+        }
+
+        .arrow {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .arrow {
+            transform: rotate(180deg); /* Arrow points up */
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        .loader{
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #b692c4;
+            transition: opacity 0.75s, visibility 0.75s;
+        }
+        .loader-hidden{
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader::after{
+            content: "";
+            width: 75px;
+            height: 75px;
+            border: 15px solid #dddddd;
+            border-top-color: #000734;
+            border-radius: 50%;
+            animation: loading 0.75s linear infinite;
+        }
+        @keyframes loading{
+            from{
+                transform: rotate(0turn);
+            }
+            to{
+                transform: rotate(1turn);
+            }
+        }
+    </style>
+</head>
+<body style="height: 100vh;">
+    <div class="hero">
+        <header>
+            <img src="{% static 'images/Verity.svg' %}" class="logo">
+            <nav>
+                {% if user.is_authenticated %}
+                <a href="/">Home</a>
+                <a href="/voting">Voting</a>
+                <a href="/results">Results</a>
+                <a href="/help">Help</a>
+                <a href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                <a href="/">Home</a>
+                <a href="/help">Help</a>
+                <a href="{% url 'user_login' %}">Login</a>
+            {% endif %}
+                <div class="animation-start-home"></div>
+            </nav>
+        </header>
+        {% if messages %}  
+          {% for message in messages %}
+             <!-- Success Alert -->
+             <div class="alert alert-success" id="custom-alert">
+             <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+             {{message}}
+             </div>
+           
+          {% endfor %}
+        {% endif %}
+        </div>
+        <div class="about-verity" style="width:70%;color:#000734;">
+            <div class="Info">
+                <h2>What is Verity?</h2>
+                <p> Verity is an e-voting application designed to provide secure, transparent, and tamper-proof elections. Using blockchain technology, Verity ensures every vote is counted accurately, and voter privacy is maintained.</p>
+            </div>
+            <div class="Info">
+                <h2>What is Blockchain?</h2>
+                <p>Blockchain is a decentralized and secure digital ledger. Instead of storing information in one central location, it distributes data across multiple nodes (computers). Each transaction is securely encrypted and verified, making tampering nearly impossible.</p>
+            </div>
+            <div class="Info">
+                <h2>How does Verity make elections safe?</h2>
+                <p><span>Transparency:</span> Each vote is recorded on the blockchain, ensuring that all transactions are visible and immutable.
+                    <br><span>Security:</span> Votes are encrypted, and only authorized users can access the system.
+                    <br><span>Fairness:</span> The system ensures that each voter can cast only one vote, and results are accurately tallied.</p>
+            </div>
+            
+            
+            
+            
+            
+        </div>
+          
+    <div class="faq-container">
+        <h2 style="text-align:center;color:#000734";>FAQs</h2> 
+        <div class="faq-item">
+            <button class="faq-question">
+                Can I change my vote? <span class="arrow">▼</span>
+            </button>
+            <div class="faq-answer">
+                <p>No, once a vote is cast, it is permanently recorded on the blockchain and cannot be altered.
+                </p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                What happens if I lose my voter ID? <span class="arrow">▼</span>
+            </button>
+            <div class="faq-answer">
+                <p>Contact the election administrator for assistance. They can verify your identity and issue a replacement.
+                </p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                How can I trust Verity's results? <span class="arrow">▼</span>
+            </button>
+            <div class="faq-answer">
+                <p>Verity uses cryptographic techniques and smart contracts to prevent tampering and ensure vote integrity. Verity’s use of blockchain guarantees that votes are securely recorded and cannot be tampered with. Additionally, you can independently verify the results through the blockchain ledger.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="loader"></div>
+    <script>
+        // FAQ Accordion Functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+
+                // Close other open items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                    }
+                });
+
+                // Toggle the clicked item
+                faqItem.classList.toggle('active');
+            });
+        });
+        window.addEventListener("load", () => {
+            const loader = document.querySelector(".loader");
+            loader.classList.add("loader-hidden");
+            loader.addEventListener("transitionend", () => {
+                document.body.removeChild(loader);
+            })
+        })
+    </script>
+</body>
+</html>

@@ -19,7 +19,8 @@ def voting(request):
     return render(request, 'voting.html',context)
 def dashboard(request):
     return render(request, 'dashboard.html', {})
-
+def help_view(request):
+    return render(request, 'help.html', {})
 
 def cast_vote_view(request):
     if request.method == "POST":
