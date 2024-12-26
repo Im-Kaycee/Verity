@@ -41,11 +41,21 @@ def get_results_view(request):
     results = []
 
     for candidate in candidates:
-        # Get vote count from the blockchain
-        votes = get_candidate_votes(candidate.id)
-        results.append({
-            "candidate_name": candidate.name,
-            "votes": votes
-        })
+        try:
+            # Get vote count from the blockchain
+            votes = get_candidate_votes(candidate.id)
+            results.append({
+                "candidate_name": candidate.name,
+                "votes": votes
+            })
+        except Exception as e:
+            # If there's an error getting votes, log it or handle accordingly
+            print(f"Error fetching votes for candidate {candidate.id}: {str(e)}")
+            results.append({
+                "candidate_name": candidate.name,
+                "votes": 0  # Default to 0 if there was an error
+            })
 
     return render(request, "results.html", {"results": results})
+
+# This view will fetch all candidates and their votes and send them to the template.
