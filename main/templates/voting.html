@@ -61,6 +61,10 @@
         {% endif %}
             <div class="animation-start-home"></div>
         </nav>
+        {% if user.is_authenticated and user.is_staff %}
+          <a href="/admin/"><button>Admin Panel</button></a>
+        {% endif %}
+
     </header>
     {% if messages %}  
       {% for message in messages %}
