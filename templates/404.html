@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>404 - Page Not Found</title>
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #fff;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 5rem;
+            color: #a855f7;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        p {
+            margin-top: -15px;
+            font-size: 1.2rem;
+        }
+
+        a {
+            color: #a855f7;
+            text-decoration: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 2px solid #a855f7;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        a:hover {
+            background-color: #a855f7;
+            color: #0d1117;
+            text-decoration: none;
+            transform: scale(1.05);
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .ghost {
+            width: 100px;
+            height: 120px;
+            background-color: #fff;
+            border-radius: 50% 50% 0 0;
+            position: relative;
+            margin: 30px auto;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .ghost-eyes {
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+            gap: 20px;
+        }
+
+        .eye {
+            width: 15px;
+            height: 15px;
+            background: #0d1117;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .ghost-bottom {
+            display: flex;
+        }
+
+        .bottom {
+            width: 25px;
+            height: 25px;
+            background: #0d1117;
+            border-radius: 50%;
+            position: relative;
+            top: -12px;
+        }
+
+        .jokes {
+            margin-top: 20px;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .error-message {
+            background-color: rgba(168, 85, 247, 0.1);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            max-width: 600px;
+            border-left: 4px solid #a855f7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>404</h1>
+        <div class="ghost">
+            <div class="ghost-eyes">
+                <div class="eye"></div>
+                <div class="eye"></div>
+            </div>
+        </div>
+        <div class="error-message">
+            <p>Oops! The page you're looking for seems to have ghosted you</p>
+            <p class="jokes">Why did the webpage go to therapy? It had too many 404 issues!</p>
+        </div>
+        
+        <a href="/">Go Home</a>
+    </div>
+    
+    <script>
+        // Make the ghost eyes follow cursor
+        document.addEventListener('mousemove', function(e) {
+            const eyes = document.querySelectorAll('.eye');
+            eyes.forEach(function(eye) {
+                const x = eye.getBoundingClientRect().left + (eye.clientWidth / 2);
+                const y = eye.getBoundingClientRect().top + (eye.clientHeight / 2);
+                const rad = Math.atan2(e.pageX - x, e.pageY - y);
+                const rot = (rad * (180 / Math.PI) * -1) + 180;
+                eye.style.transform = 'rotate(' + rot + 'deg)';
+            });
+        });
+
+        // Array of funny 404 jokes
+        const jokes = [
+            "I searched high and low for this page... it's definitely not hiding in my code.",
+            "This page is like my motivation on Monday mornings: non-existent.",
+            "Plot twist: This page never existed. You've been page-catfished.",
+            "Error 404: Witty message not found.",
+            "This link is broken, just like my promises to stop procrastinating.",
+            "The page you're looking for is in another castle.",
+            "If this page were a cat, it would have deliberately ignored your request."
+        ];
+
+        // Pick a random joke on page load
+        window.onload = function() {
+            const jokeElement = document.querySelector('.jokes');
+            const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+            jokeElement.textContent = randomJoke;
+        }
+    </script>
+</body>
+</html>

@@ -25,3 +25,11 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('users/', include('django.contrib.auth.urls')),
     ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+from django.conf.urls import handler404
+from django.shortcuts import render
+
+# Custom 404 view
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
+
+handler404 = custom_404
