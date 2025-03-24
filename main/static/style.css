@@ -1,14 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-body{
-    background-image: url(images/bg.jpg);
-    background-position:center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: poppins;
+body {
+    background-color: #0d1117; /* Deep black for a sleek tech feel */
+    background-image: radial-gradient(circle at center, rgba(128, 0, 128, 0.2) 0%, rgba(0, 0, 0, 0.9) 70%);
+    color: #e2e8f0; /* Soft white for contrast */
+    font-family: poppins, sans-serif;
     margin-left: 50px;
     margin-right: 50px;
     height: 100vh;
+    
 }
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(128, 0, 128, 0.1),
+        rgba(128, 0, 128, 0.1) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    opacity: 0.2;
+    pointer-events: none;
+}
+
 header{
     display: flex;
     justify-content: space-between;
@@ -20,8 +39,8 @@ header{
     flex-direction: column;
 }
 .logo{
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
 }
 .hero h1{
     color: #FFF;
@@ -82,12 +101,14 @@ button:hover{
 nav {
     position: relative;
     margin: 50px auto 0;
-    width: 590px;
+    width: auto; /* Adjusted width to be dynamic */
     height: 50px;
-    background: #34495e;
+    background: rgb(31, 1, 31);
     border-radius: 8px;
     font-size: 0;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1);
+    display: flex;
+    justify-content: center;
 }
 
 nav a {
@@ -100,6 +121,10 @@ nav a {
     z-index: 1;
     display: inline-block;
     text-align: center;
+    padding: 0 20px; /* Added padding for spacing */
+}
+nav a:hover{
+    color: #a06aa1
 }
 
 nav .animation-start-home {
@@ -109,59 +134,14 @@ nav .animation-start-home {
     z-index: 0;
     background: #1abc9c;
     border-radius: 8px;
-    transition: width 0.5s ease-out, left 0.5s ease-out, opacity 0.3s ease-out; /* Apply easing to position and opacity */
-    opacity: 0; /* Hidden by default */
+    transition: width 0.5s ease-out, left 0.5s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
 }
 
-nav a:nth-child(1) {
-    width: 100px;
-}
-
-nav .start-home,
-a:nth-child(1):hover ~ .animation-start-home {
-    width: 100px;
-    left: 0;
-    opacity: 1; /* Show the pill on hover */
-}
-
-nav a:nth-child(2) {
-    width: 110px;
-}
-
-nav a:nth-child(2):hover ~ .animation-start-home {
-    width: 110px;
-    left: 100px;
-    opacity: 1; /* Show the pill on hover */
-}
-
-nav a:nth-child(3) {
-    width: 100px;
-}
-
-nav a:nth-child(3):hover ~ .animation-start-home {
-    width: 100px;
-    left: 210px;
-    opacity: 1; /* Show the pill on hover */
-}
-
-nav a:nth-child(4) {
-    width: 160px;
-}
-
-nav a:nth-child(4):hover ~ .animation-start-home{
-    width: 160px;
-    left: 310px;
-    opacity: 1; /* Show the pill on hover */
-}
-
-nav a:nth-child(5) {
-    width: 120px;
-}
-
-nav a:nth-child(5):hover ~ .animation-start-home {
-    width: 120px;
-    left: 470px;
-    opacity: 1; /* Show the pill on hover */
+nav a:hover ~ .animation-start-home {
+    width: calc(100% / var(--link-count)); /* Dynamic width based on the number of links */
+    left: calc(var(--link-index) * 100% / var(--link-count)); /* Dynamic left position based on the index */
+    opacity: 1;
 }
 .candidate-list{
     display: flex;
@@ -200,10 +180,11 @@ line-height: normal;
     width: 234px;
     height: 260px;
     margin: 10px;
-    background-color: #000734;
+    background-color: #aa87ad1c;
     border: 4px solid transparent;
     border-radius: 10px;
     cursor: pointer;
+    backdrop-filter: blur(10px); 
 }
 .radio-btn .content{
     padding: 20px;
@@ -211,6 +192,8 @@ line-height: normal;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #aa87ad1c;
+    backdrop-filter: blur(10px); 
 }
 .radio-btn .profile-image{
     width: 80px;
@@ -234,7 +217,7 @@ line-height: normal;
 .radio-btn .check-icon{
     width: 30px;
     height: 30px;
-    background-color: #040f52;
+    background-color: #aa87ad1c;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -293,7 +276,7 @@ transform: scale(1);
     position: relative;
     min-height: 100vh;
     z-index: 0;
-    background: rgba(224, 224, 224, 0.247);
+   
     padding: 10px;
     justify-content: center;
     display: grid;
@@ -329,7 +312,7 @@ transform: scale(1);
 .content{
     flex-basis: 50%;
     padding: 3em 3em;
-    background: #000734;
+    background: #5d1f756c;
     box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, .1);
     border-top-left-radius: 8px;
     border-bottom-left-radius:8px ;

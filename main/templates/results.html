@@ -25,7 +25,7 @@
         main.table {
                width: 82vw;
                height: auto;
-               background-color: #fff5;
+               
            
                backdrop-filter: blur(7px);
                box-shadow: 0 .4rem .8rem #0005;
@@ -305,35 +305,39 @@
           {% endfor %}
         {% endif %}
         </div>
-    <h1 style="text-align:center;">Election Results</h1>
-     <main class="table" id="customers_table">
-         <section class="table__body">
-             <table>
-                <thead>
-                    <tr>
-                        <th>Candidate Name</th>
-                        <th>Vote Count</th>
-                    </tr>
-                </thead>
-                 <tbody>
-                    {% for result in results %}
+    
+        <h1 style="text-align: center; color: #fff;">Election Results</h1>
+        <main class="table" id="customers_table" style="display: flex; justify-content: center; align-items: center; height: auto;margin-left: 5vw;">
+            <section class="table__body" style="width: 60%; padding: 20px;">
+                <table style="width: 100%; color: #1f1d1d;">
+                    <thead>
                         <tr>
-                            <td>{{ result.candidate_name }}</td>
-                            <td>
-                                {% if result.votes == 0 %}
-                                    <span class="no-votes">No votes</span>
-                                {% else %}
-                                    {{ result.votes }}
-                                {% endif %}
-                            </td>
+                            <th>Candidate Name</th>
+                            <th>Vote Count</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-                    
-             </table>
-         </section>
-     </main>
-     <div class="loader"></div>
+                    </thead>
+                    <tbody>
+                        {% for result in results %}
+                            <tr>
+                                <td>{{ result.candidate_name }}</td>
+                                <td>
+                                    {% if result.votes == 0 %}
+                                        <span class="no-votes" style="color: #f87171;">No votes</span>
+                                    {% else %}
+                                        {{ result.votes }}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    
+     
+    
+        <div class="loader" style="z-index: 1; position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; background-color: rgba(13, 17, 23, 0.9); transition: opacity 0.75s, visibility 0.75s;"></div>
+    </div>
      <script>
         window.addEventListener("load", () => {
             const loader = document.querySelector(".loader");

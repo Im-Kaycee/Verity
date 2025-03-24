@@ -63,19 +63,25 @@
             <div class="animation-start-home"></div>
         </nav>
     </header>
-    <h1>The Future of Voting.<br>
-        Simple, Secure,<br>
-        <span>Transparent</span></h1>
-       
-            <h3>Verity ensures secure, anonymous voting with full transparency and 
-                tamper-proof integrity, empowering you to shape the future.</h3>
-       
+    <div class="hero-section" style="max-width: 800px; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; padding: 40px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8); text-align: center; margin: 0 auto;margin-top: 50px;">
+        <h1 style="font-size: 3rem; font-weight: 700; color: #fff;">The Future of Voting.<br>
+            <span style="color: #a855f7; text-shadow: 0 0 5px #a855f7;">Simple. Secure.</span><br>
+            <span style="color: #a855f7; text-shadow: 0 0 5px #a855f7;">Transparent.</span>
+        </h1>
+    
+        <h3 style="margin-top: 15px; font-size: 1.2rem; color: #b3b3b3; line-height: 1.6;">
+            Verity ensures secure, anonymous voting with full transparency and tamper-proof integrity,
+            empowering you to shape the future.
+        </h3>
+    
+        <div class="centralised-button" style="margin-top: 20px;">
+            <a href="{% url 'user_login' %}">
+                <button style="background-color: #a855f7; color: #fff; border: none; border-radius: 30px; padding: 12px 30px; font-size: 1.2rem; cursor: pointer; transition: background 0.3s ease-in-out, transform 0.2s; box-shadow: 0 4px 12px rgba(168, 85, 247, 0.5);">Get Started</button>
+            </a>
+        </div>
+    
+        <div class="loader" style="z-index: 1; position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; background-color: rgba(13, 17, 23, 0.9); transition: opacity 0.75s, visibility 0.75s;"></div>
     </div>
-    <div class="centralised-button">
-        <a href="{% url 'user_login' %}"><button>Get Started</button></a>
-    </div>
-    <div class="loader"></div>
-   
 <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.0/dist/ethers.umd.min.js"></script>
 <script>
     window.addEventListener("load", () => {

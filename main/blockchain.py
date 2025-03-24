@@ -12,7 +12,7 @@ with open(os.path.join(os.path.dirname(__file__), "voting_abi.json"), "r") as ab
 # Get all accounts (used for voters)
 accounts = web3.eth.accounts
 # Smart contract address on Ganache
-contract_address = "0x14D3218488Ec9B5ccde22Ecca4A8abfCFE4fc1e4"  # Replace with your deployed contract address
+contract_address = "0x2Fadc809FA53fB7AfF1D19c3af03dD99fdD44412"  # Replace with your deployed contract address
 
 # Contract instance
 contract = web3.eth.contract(address=contract_address, abi=contract_abi)
